@@ -1,9 +1,15 @@
 var React = require('react');
+var GitHubUser = require('../services/GitHubUser');
 
 class SearchUser extends React.Component{
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.refs.username);
+    GitHubUser.getByUsername(this.refs.username.value).then(function(response){
+      console.log(response);
+    });
+    GitHubUser.getReposByUsername(this.refs.username.value).then(function(response){
+      console.log(response);
+    });
   }
   render () {
     return(
