@@ -23,7 +23,7 @@ class SearchUser extends React.Component{
                    type="text"
                    ref="username"
                    className="form-control"
-                   placeholder="Ex: matheusml"
+                   placeholder="Ex: yohann"
                    />
                </div>
                <button
@@ -36,5 +36,10 @@ class SearchUser extends React.Component{
     );
   }
 };
+
+SearchUser.propTypes = {
+  updateUser: React.propTypes.func.isRequired,
+  
+}
 
 export default SearchUser;

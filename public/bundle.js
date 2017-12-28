@@ -19046,7 +19046,7 @@ class SearchUser extends React.Component {
               type: 'text',
               ref: 'username',
               className: 'form-control',
-              placeholder: 'Ex: matheusml'
+              placeholder: 'Ex: yohann'
             })
           ),
           React.createElement(
