@@ -2,6 +2,16 @@ var React = require('react');
 var GitHubUser = require('../services/GitHubUser');
 
 class UserRepos extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      reposCount: 0,
+    };
+  }
+  componentWillReceiveProps(props)
+  {
+    this.setState({reposCount: props.repos.length});
+  }
   render() {
     const repos = this.props.repos.map(function(repo, key) {
       return (
@@ -22,6 +32,7 @@ class UserRepos extends React.Component {
 
     return (
       <div>
+        <h2>{this.state.reposCount} repositories</h2>
         {repos}
       </div>
     );

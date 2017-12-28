@@ -20038,6 +20038,15 @@ var React = __webpack_require__(2);
 var GitHubUser = __webpack_require__(8);
 
 class UserRepos extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      reposCount: 0
+    };
+  }
+  componentWillReceiveProps(props) {
+    this.setState({ reposCount: props.repos.length });
+  }
   render() {
     const repos = this.props.repos.map(function (repo, key) {
       return React.createElement(
@@ -20085,6 +20094,12 @@ class UserRepos extends React.Component {
     return React.createElement(
       'div',
       null,
+      React.createElement(
+        'h2',
+        null,
+        this.state.reposCount,
+        ' repositories'
+      ),
       repos
     );
   }
