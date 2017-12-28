@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 var React = require('react');
 var GitHubUser = require('../services/GitHubUser');
 
@@ -38,8 +39,8 @@ class SearchUser extends React.Component{
 };
 
 SearchUser.propTypes = {
-  updateUser: React.propTypes.func.isRequired,
-  
+  updateUser: PropTypes.func,
+  updateRepos: PropTypes.func.isRequired,
 }
 
 export default SearchUser;

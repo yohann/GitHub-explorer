@@ -1,5 +1,9 @@
+import PropTypes from 'prop-types';
+
 var React = require('react');
 var GitHubUser = require('../services/GitHubUser');
+
+import UserRepos from './UserRepos';
 
 function UserInfo(props) {
   const userInfo = props.user ?
@@ -12,14 +16,17 @@ function UserInfo(props) {
           <p>Followers: {props.user.followers} / Following: {props.user.following}</p>
           <p><a className="btn btn-default" href={props.user.html_url} role="button">View details</a></p>
         </div>
+        <div className="col-lg-8">
+          <UserRepos repos={props.repos} />
+        </div>
       </div>
     ) : null;
   return userInfo;
 }
 
 UserInfo.propTypes = {
-  user: React.propTypes.object,
-  repos: React.propTypes.array,
+  user: PropTypes.object,
+  repos: PropTypes.array,
 }
 
 export default UserInfo;
